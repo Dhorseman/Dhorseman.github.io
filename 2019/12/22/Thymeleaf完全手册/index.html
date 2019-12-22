@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | LogBack</title>
+  <title>Thymeleaf完全手册 | LogBack</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="&quot;后端,Java,Spring全家桶,Redis,RocketMQ,Netty,Docker&quot;">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LogBack">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;page&#x2F;2&#x2F;index.html">
+  <meta name="description" content="​        转载一篇Thymeleaf的操作指南，方便自己查缺补漏；原文链接地址：https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;76d3d4cb2520 thymeleaf介绍简单说， Thymeleaf 是一个跟 Velocity、FreeMarker 类似的模板引擎，它可以完全替代 JSP 。相较与其他的模板引擎，它有如下三个极吸引人的特点： 1.Thymeleaf 在有网络和无网">
+<meta name="keywords" content="&quot;后端,Java,Spring全家桶,Redis,RocketMQ,Netty,Docker&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Thymeleaf完全手册">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;22&#x2F;Thymeleaf%E5%AE%8C%E5%85%A8%E6%89%8B%E5%86%8C&#x2F;index.html">
 <meta property="og:site_name" content="LogBack">
+<meta property="og:description" content="​        转载一篇Thymeleaf的操作指南，方便自己查缺补漏；原文链接地址：https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;76d3d4cb2520 thymeleaf介绍简单说， Thymeleaf 是一个跟 Velocity、FreeMarker 类似的模板引擎，它可以完全替代 JSP 。相较与其他的模板引擎，它有如下三个极吸引人的特点： 1.Thymeleaf 在有网络和无网">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;math.jianshu.com&#x2F;math?formula=%7Buser.isAdmin()%7D%20%3F%20">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;22&#x2F;Thymeleaf%E5%AE%8C%E5%85%A8%E6%89%8B%E5%86%8C&#x2F;@%7B&#x2F;img&#x2F;logo.png%7D">
+<meta property="og:updated_time" content="2019-12-22T15:15:14.136Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;math.jianshu.com&#x2F;math?formula=%7Buser.isAdmin()%7D%20%3F%20">
   
     <link rel="alternative" href="/atom.xml" title="LogBack" type="application/atom+xml">
   
@@ -134,106 +140,349 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Thymeleaf完全手册" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Thymeleaf完全手册
+    </h1>
+  
+
+        
+        <a href="/2019/12/22/Thymeleaf%E5%AE%8C%E5%85%A8%E6%89%8B%E5%86%8C/" class="archive-article-date">
+  	<time datetime="2019-12-22T15:15:14.136Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-22</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​        转载一篇Thymeleaf的操作指南，方便自己查缺补漏；原文链接地址：<a href="https://www.jianshu.com/p/76d3d4cb2520" target="_blank" rel="noopener">https://www.jianshu.com/p/76d3d4cb2520</a></p>
+<h2 id="thymeleaf介绍"><a href="#thymeleaf介绍" class="headerlink" title="thymeleaf介绍"></a>thymeleaf介绍</h2><p>简单说， Thymeleaf 是一个跟 Velocity、FreeMarker 类似的模板引擎，它可以完全替代 JSP 。相较与其他的模板引擎，它有如下三个极吸引人的特点：</p>
+<p>1.Thymeleaf 在有网络和无网络的环境下皆可运行，即它可以让美工在浏览器查看页面的静态效果，也可以让程序员在服务器查看带数据的动态页面效果。这是由于它支持 html 原型，然后在 html 标签里增加额外的属性来达到模板+数据的展示方式。浏览器解释 html 时会忽略未定义的标签属性，所以 thymeleaf 的模板可以静态地运行；当有数据返回到页面时，Thymeleaf 标签会动态地替换掉静态内容，使页面动态显示。</p>
+<p>2.Thymeleaf 开箱即用的特性。它提供标准和spring标准两种方言，可以直接套用模板实现JSTL、 OGNL表达式效果，避免每天套模板、该jstl、改标签的困扰。同时开发人员也可以扩展和创建自定义的方言。</p>
+<p>3.Thymeleaf 提供spring标准方言和一个与 SpringMVC 完美集成的可选模块，可以快速的实现表单绑定、属性编辑器、国际化等功能。</p>
+<a id="more"></a>
+
+<h2 id="标准表达式语法"><a href="#标准表达式语法" class="headerlink" title="标准表达式语法"></a>标准表达式语法</h2><p>它们分为四类：</p>
+<p>1.变量表达式</p>
+<p>2.选择或星号表达式</p>
+<p>3.文字国际化表达式</p>
+<p>4.URL表达式</p>
+<h3 id="变量表达式"><a href="#变量表达式" class="headerlink" title="变量表达式"></a>变量表达式</h3><p>变量表达式即OGNL表达式或Spring EL表达式(在Spring术语中也叫model attributes)。如下所示：</p>
+<p>${session.user.name}</p>
+<p>它们将以HTML标签的一个属性来表示：</p>
+<span th:text="${book.author.name}">
+
+<li th:each="book : ${books}">
+
+<h3 id="选择-星号-表达式"><a href="#选择-星号-表达式" class="headerlink" title="选择(星号)表达式"></a>选择(星号)表达式</h3><p>选择表达式很像变量表达式，不过它们用一个预先选择的对象来代替上下文变量容器(map)来执行，如下：</p>
+<p>*{customer.name}</p>
+<p>被指定的object由th:object属性定义：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:object</span>=<span class="string">"$&#123;book&#125;"</span>&gt;</span></span><br><span class="line">...  </span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">"*&#123;title&#125;"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">span</span>&gt;</span>  </span><br><span class="line"></span><br><span class="line">  ...  </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="文字国际化表达式"><a href="#文字国际化表达式" class="headerlink" title="文字国际化表达式"></a>文字国际化表达式</h3><p>文字国际化表达式允许我们从一个外部文件获取区域文字信息(.properties)，用Key索引Value，还可以提供一组参数(可选).</p>
+<h1 id="main-title"><a href="#main-title" class="headerlink" title="{main.title}"></a>{main.title}</h1><h1 id="message-entrycreated-entryId"><a href="#message-entrycreated-entryId" class="headerlink" title="{message.entrycreated(${entryId})}"></a>{message.entrycreated(${entryId})}</h1><p>可以在模板文件中找到这样的表达式代码：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span>  </span><br><span class="line">...  </span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">th</span> <span class="attr">th:text</span>=<span class="string">"#&#123;header.address.city&#125;"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">th</span>&gt;</span>  </span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">th</span> <span class="attr">th:text</span>=<span class="string">"#&#123;header.address.country&#125;"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">th</span>&gt;</span>  </span><br><span class="line"></span><br><span class="line">  ...  </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="URL表达式"><a href="#URL表达式" class="headerlink" title="URL表达式"></a>URL表达式</h3><p>URL表达式指的是把一个有用的上下文或回话信息添加到URL，这个过程经常被叫做URL重写。</p>
+<p>@{/order/list}</p>
+<p>URL还可以设置参数：</p>
+<p>@{/order/details(id=${orderId})}</p>
+<p>相对路径：</p>
+<p>@{../documents/report}</p>
+<p>让我们看这些表达式：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">th:action</span>=<span class="string">"@&#123;/createOrder&#125;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"main.html"</span> <span class="attr">th:href</span>=<span class="string">"@&#123;/main&#125;"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="变量表达式和星号表达有什么区别吗？"><a href="#变量表达式和星号表达有什么区别吗？" class="headerlink" title="变量表达式和星号表达有什么区别吗？"></a>变量表达式和星号表达有什么区别吗？</h3><p>如果不考虑上下文的情况下，两者没有区别；星号语法评估在选定对象上表达，而不是整个上下文</p>
+<p>什么是选定对象？就是父标签的值，如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:object</span>=<span class="string">"$&#123;session.user&#125;"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Name: <span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">"*&#123;firstName&#125;"</span>&gt;</span>Sebastian<span class="tag">&lt;/<span class="name">span</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Surname: <span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">"*&#123;lastName&#125;"</span>&gt;</span>Pepper<span class="tag">&lt;/<span class="name">span</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Nationality: <span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">"*&#123;nationality&#125;"</span>&gt;</span>Saturn<span class="tag">&lt;/<span class="name">span</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这是完全等价于：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:object</span>=<span class="string">"$&#123;session.user&#125;"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Name: <span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">"$&#123;session.user.firstName&#125;"</span>&gt;</span>Sebastian<span class="tag">&lt;/<span class="name">span</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"> <span class="tag">&lt;<span class="name">p</span>&gt;</span>Surname: <span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">"$&#123;session.user.lastName&#125;"</span>&gt;</span>Pepper<span class="tag">&lt;/<span class="name">span</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"> <span class="tag">&lt;<span class="name">p</span>&gt;</span>Nationality: <span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">"$&#123;session.user.nationality&#125;"</span>&gt;</span>Saturn<span class="tag">&lt;/<span class="name">span</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   </span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>当然，美元符号和星号语法可以混合使用：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:object</span>=<span class="string">"$&#123;session.user&#125;"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Name: <span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">"*&#123;firstName&#125;"</span>&gt;</span>Sebastian<span class="tag">&lt;/<span class="name">span</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">p</span>&gt;</span>Surname: <span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">"$&#123;session.user.lastName&#125;"</span>&gt;</span>Pepper<span class="tag">&lt;/<span class="name">span</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"> <span class="tag">&lt;<span class="name">p</span>&gt;</span>Nationality: <span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">"*&#123;nationality&#125;"</span>&gt;</span>Saturn<span class="tag">&lt;/<span class="name">span</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   </span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="表达式支持的语法"><a href="#表达式支持的语法" class="headerlink" title="表达式支持的语法"></a>表达式支持的语法</h3><h4 id="字面（Literals）"><a href="#字面（Literals）" class="headerlink" title="字面（Literals）"></a>字面（Literals）</h4><p>文本文字（Text literals）: ‘one text’, ‘Another one!’,…</p>
+<p>数字文本（Number literals）: 0, 34, 3.0, 12.3,…</p>
+<p>布尔文本（Boolean literals）: true, false</p>
+<p>空（Null literal）: null</p>
+<p>文字标记（Literal tokens）: one, sometext, main,…</p>
+<h4 id="文本操作（Text-operations）"><a href="#文本操作（Text-operations）" class="headerlink" title="文本操作（Text operations）"></a>文本操作（Text operations）</h4><p>字符串连接(String concatenation): +</p>
+<p>文本替换（Literal substitutions）: |The name is ${name}|</p>
+<h4 id="算术运算（Arithmetic-operations）"><a href="#算术运算（Arithmetic-operations）" class="headerlink" title="算术运算（Arithmetic operations）"></a>算术运算（Arithmetic operations）</h4><p>二元运算符（Binary operators）: +, -, *, /, %</p>
+<p>减号（单目运算符）Minus sign (unary operator): -</p>
+<h4 id="布尔操作（Boolean-operations）"><a href="#布尔操作（Boolean-operations）" class="headerlink" title="布尔操作（Boolean operations）"></a>布尔操作（Boolean operations）</h4><p>二元运算符（Binary operators）:and, or</p>
+<p>布尔否定（一元运算符）Boolean negation (unary operator):!, not</p>
+<h4 id="比较和等价-Comparisons-and-equality"><a href="#比较和等价-Comparisons-and-equality" class="headerlink" title="比较和等价(Comparisons and equality)"></a>比较和等价(Comparisons and equality)</h4><p>比较（Comparators）: &gt;, &lt;, &gt;=, &lt;= (gt, lt, ge, le)</p>
+<p>等值运算符（Equality operators）:==, != (eq, ne)</p>
+<h4 id="条件运算符（Conditional-operators）"><a href="#条件运算符（Conditional-operators）" class="headerlink" title="条件运算符（Conditional operators）"></a>条件运算符（Conditional operators）</h4><p>If-then: (if) ? (then)</p>
+<p>If-then-else: (if) ? (then) : (else)</p>
+<p>Default: (value) ?: (defaultvalue)</p>
+<p>所有这些特征可以被组合并嵌套：</p>
+<p>‘User is of type ‘ + (<img src="https://math.jianshu.com/math?formula=%7Buser.isAdmin()%7D%20%3F%20'Administrator'%20%3A%20(" alt="{user.isAdmin()} ? &#39;Administrator&#39; : (">{user.type} ?: ‘Unknown’))</p>
+<h2 id="常用th标签都有那些？"><a href="#常用th标签都有那些？" class="headerlink" title="常用th标签都有那些？"></a>常用th标签都有那些？</h2><p>th:id | 替换id | <input th:id="'xxx' + {collect.description}">description</p> |  </p>
+<p>th:utext | 支持html的文本替换 | <p th:utext="{session.user}"> |   </p>
+<p>th:value | 属性赋值 | <input th:value="{prodStat.count}%2==0"></div> |  </p>
+<p>th:style | 设置样式 | th:style=”‘display:’ + @{({users}”&gt; |  </p>
+<p>th:if | 判断条件 | &lt;a th:if=”{session.user != null}&gt;Login</a> |  </p>
+<p>th:href | 链接地址 | &lt;a th:href=”@{/login}” th:unless={user.role}”&gt; | </p>
+<p>th:case | th:switch的一个分支 | <p th:case="'admin'">User is an administrator</p> |  </p>
+<p>th:fragment | 布局标签，定义一个代码片段，方便其它地方引用 | <div th:fragment="alert"> |  th:include | 布局标签，替换内容到引入的文件 | <head th:include="layout :: htmlhead" th:with="title='xx'"></head> /&gt; |  </p>
+<p>th:replace | 布局标签，替换整个标签到引入的文件 | <div th:replace="fragments/header :: title"></div> |  </p>
+<p>th:selected | selected选择框 选中 | </p>
+<p>th:selected=”({configObj.dd})” |  </p>
+<p>th:src | 图片类地址引入 | <img class="img-responsive" alt="App Logo" th:src="@{/img/logo.png}" /> |  | </p>
+<p>th:inline | 定义js脚本可以使用变量 | <script type="text/javascript" th:inline="javascript"> |  th:action | 表单提交的地址 | <form action="subscribe.html" th:action="@{/subscribe}"> |  | th:remove | 删除某个属性 | <tr th:remove="all"> 1.all:删除包含标签和所有的孩子。2.body:不包含标记删除,但删除其所有的孩子。3.tag:包含标记的删除,但不删除它的孩子。4.all-but-first:删除所有包含标签的孩子,除了第一个。5.none:什么也不做。这个值是有用的动态评估。 |  </p>
+<p>th:attr | 设置标签属性，多个属性可以用逗号分隔 | 比如 th:attr="src=@{/image/aa.jpg},title=#{logo}"，此标签不太优雅，一般用的比较少。 |</p>
+<p>还有非常多的标签，这里只列出最常用的几个,由于一个标签内可以包含多个th:x属性，其生效的优先级顺序为: include,each,if/unless/switch/case,with,attr/attrprepend/attrappend,value/href,src ,etc,text/utext,fragment,remove。</p>
+<h2 id="几种常用的使用方法"><a href="#几种常用的使用方法" class="headerlink" title="几种常用的使用方法"></a>几种常用的使用方法</h2><h3 id="1、赋值、字符串拼接"><a href="#1、赋值、字符串拼接" class="headerlink" title="1、赋值、字符串拼接"></a>1、赋值、字符串拼接</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>  <span class="attr">th:text</span>=<span class="string">"$&#123;collect.description&#125;"</span>&gt;</span>description<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">"'Welcome to our application, ' + $&#123;user.name&#125; + '!'"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>字符串拼接还有另外一种简洁的写法</p>
+<span th:text="|Welcome to our application, ${user.name}!|">
+
+<h3 id="2、条件判断-If-Unless"><a href="#2、条件判断-If-Unless" class="headerlink" title="2、条件判断 If/Unless"></a>2、条件判断 If/Unless</h3><p>Thymeleaf中使用th:if和th:unless属性进行条件判断，下面的例子中，<a>标签只有在th:if中条件成立时才显示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">th:if</span>=<span class="string">"$&#123;myself=='yes'&#125;"</span> &gt;</span> <span class="tag">&lt;/<span class="name">i</span>&gt;</span> <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">th:unless</span>=<span class="string">$&#123;session.user</span> != <span class="string">null&#125;</span> <span class="attr">th:href</span>=<span class="string">"@&#123;/login&#125;"</span> &gt;</span>Login<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>th:unless于th:if恰好相反，只有表达式中的条件不成立，才会显示其内容。</p>
+<p>也可以使用 (if) ? (then) : (else) 这种语法来判断显示的内容</p>
+<h3 id="3、for-循环"><a href="#3、for-循环" class="headerlink" title="3、for 循环"></a>3、for 循环</h3><tr  th:each="collect,iterStat : ${collects}">
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">th</span> <span class="attr">scope</span>=<span class="string">"row"</span> <span class="attr">th:text</span>=<span class="string">"$&#123;collect.id&#125;"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> &gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">img</span> <span class="attr">th:src</span>=<span class="string">"$&#123;collect.webLogo&#125;"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">th:text</span>=<span class="string">"$&#123;collect.url&#125;"</span>&gt;</span>Mark<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">th:text</span>=<span class="string">"$&#123;collect.title&#125;"</span>&gt;</span>Otto<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">th:text</span>=<span class="string">"$&#123;collect.description&#125;"</span>&gt;</span>@mdo<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">th:text</span>=<span class="string">"$&#123;terStat.index&#125;"</span>&gt;</span>index<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</tr>
+
+<p>iterStat称作状态变量，属性有：</p>
+<p>index:当前迭代对象的index（从0开始计算）</p>
+<p>count: 当前迭代对象的index(从1开始计算)</p>
+<p>size:被迭代对象的大小</p>
+<p>current:当前迭代变量</p>
+<p>even/odd:布尔值，当前循环是否是偶数/奇数（从0开始计算）</p>
+<p>first:布尔值，当前循环是否是第一个</p>
+<p>last:布尔值，当前循环是否是最后一个</p>
+<h3 id="4、URL"><a href="#4、URL" class="headerlink" title="4、URL"></a>4、URL</h3><p>URL在Web应用模板中占据着十分重要的地位，需要特别注意的是Thymeleaf对于URL的处理是通过语法@{…}来处理的。 如果需要Thymeleaf对URL进行渲染，那么务必使用th:href，th:src等属性，下面是一个例子</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"details.html"</span> <span class="attr">th:href</span>=<span class="string">"@&#123;/order/&#123;orderId&#125;/details(orderId=$&#123;o.id&#125;)&#125;"</span>&gt;</span>view<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span>  <span class="attr">th:href</span>=<span class="string">"@&#123;/standard/&#123;type&#125;(type=$&#123;type&#125;)&#125;"</span>&gt;</span>view<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>设置背景</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:style</span>=<span class="string">"'background:url(' + @&#123;/&lt;path-to-image&gt;&#125; + ');'"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>根据属性值改变背景</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"media-object resource-card-image"</span>  <span class="attr">th:style</span>=<span class="string">"'background:url(' + @&#123;(&#123;collect.webLogo&#125;)&#125; + ')'"</span> &gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>几点说明：</p>
+<p>上例中URL最后的(orderId=${o.id}) 表示将括号内的内容作为URL参数处理，该语法避免使用字符串拼接，大大提高了可读性</p>
+<p>@{...}表达式中可以通过{orderId}访问Context中的orderId变量</p>
+<p>@{/order}是Context相关的相对路径，在渲染时会自动添加上当前Web应用的Context名字，假设context名字为app，那么结果应该是/app/order</p>
+<h3 id="5、内联js"><a href="#5、内联js" class="headerlink" title="5、内联js"></a>5、内联js</h3><p>内联文本：[[…]]内联文本的表示方式，使用时，必须先用th:inline=”text/javascript/none”激活，th:inline可以在父级标签内使用，甚至作为body的标签。内联文本尽管比th:text的代码少，不利于原型显示。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">th:inline</span>=<span class="string">"javascript"</span>&gt;</span></span><br><span class="line">  /*/</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="keyword">var</span> username = <span class="comment">/*[[$&#123;sesion.user.name&#125;]]*/</span> <span class="string">'Sebastian'</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="keyword">var</span> size = <span class="comment">/*[[$&#123;size&#125;]]*/</span> <span class="number">0</span>;</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="actionscript"><span class="comment">/*]]&gt;*/</span></span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">js附加代码：</span><br><span class="line"></span><br><span class="line">/*[+</span><br><span class="line"></span><br><span class="line">var msg = 'This is a working application';</span><br><span class="line"></span><br><span class="line">+]*/</span><br><span class="line"></span><br><span class="line">js移除代码：</span><br><span class="line"></span><br><span class="line">/*[- */</span><br><span class="line"></span><br><span class="line">var msg = 'This is a non-working template';</span><br><span class="line"></span><br><span class="line">/* -]*/</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用thymeleaf布局"><a href="#使用thymeleaf布局" class="headerlink" title="使用thymeleaf布局"></a>使用thymeleaf布局</h2><p>使用thymeleaf布局非常的方便</p>
+<p>定义代码片段</p>
+<footer th:fragment="copy">
+
+<p>© 2016</p>
+</footer>
+
+<p>在页面任何地方引入：</p>
+<body>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:include</span>=<span class="string">"footer :: copy"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>	</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:replace</span>=<span class="string">"footer :: copy"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</body>
+
+<p>th:include 和 th:replace区别，include只是加载，replace是替换</p>
+<p>返回的HTML如下：</p>
+<body>
+
+<div> © 2016 </div>
+
+<footer>© 2016 </footer>
+
+</body>
+
+<p>下面是一个常用的后台页面布局，将整个页面分为头部，尾部、菜单栏、隐藏栏，点击菜单只改变content区域的页面</p>
+<body class="layout-fixed">
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:fragment</span>=<span class="string">"navbar"</span>  <span class="attr">class</span>=<span class="string">"wrapper"</span>  <span class="attr">role</span>=<span class="string">"navigation"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:fragment</span>=<span class="string">"navbar"</span>  <span class="attr">class</span>=<span class="string">"wrapper"</span>  <span class="attr">role</span>=<span class="string">"navigation"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:replace</span>=<span class="string">"fragments/header :: header"</span>&gt;</span>Header<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:replace</span>=<span class="string">"fragments/left :: left"</span>&gt;</span>left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:replace</span>=<span class="string">"fragments/sidebar :: sidebar"</span>&gt;</span>sidebar<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">layout:fragment</span>=<span class="string">"content"</span> <span class="attr">id</span>=<span class="string">"content"</span> &gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:replace</span>=<span class="string">"fragments/footer :: footer"</span>&gt;</span>footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</div>
+
+</body>
+
+<p>任何页面想使用这样的布局值只需要替换中见的 content模块即可</p>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorator="layout">
+
+<body>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">section</span> <span class="attr">layout:fragment</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>也可以在引用模版的时候传参</p>
+<head th:include="layout :: htmlhead" th:with="title='Hello'"></head>
+
+<p>layout 是文件地址，如果有文件夹可以这样写 fileName/layout:htmlhead</p>
+<p>htmlhead 是指定义的代码片段 如 th:fragment=“copy"</p>
+<p>内嵌变量</p>
+<p>日期格式、组件提取等.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">$&#123;#dates.format(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.arrayFormat(datesArray)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.listFormat(datesList)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.setFormat(datesSet)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.format(date, 'dd/MMM/yyyy HH:mm')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.arrayFormat(datesArray, 'dd/MMM/yyyy HH:mm')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.listFormat(datesList, 'dd/MMM/yyyy HH:mm')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.setFormat(datesSet, 'dd/MMM/yyyy HH:mm')&#125;</span><br><span class="line"></span><br><span class="line">![&#123;#dates.day(date)&#125;](https://math.jianshu.com/math?formula=%7B%23dates.day(date)%7D)&#123;#dates.month(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.monthName(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.monthNameShort(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.year(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.dayOfWeek(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.dayOfWeekName(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.dayOfWeekNameShort(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.hour(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.minute(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.second(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.millisecond(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.create(year,month,day)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.create(year,month,day,hour,minute)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.create(year,month,day,hour,minute,second)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.create(year,month,day,hour,minute,second,millisecond)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.createNow()&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#dates.createToday()&#125;</span><br></pre></td></tr></table></figure>
+
+<p>日历</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">$&#123;#calendars.format(cal)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.arrayFormat(calArray)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.listFormat(calList)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.setFormat(calSet)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.format(cal, 'dd/MMM/yyyy HH:mm')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.arrayFormat(calArray, 'dd/MMM/yyyy HH:mm')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.listFormat(calList, 'dd/MMM/yyyy HH:mm')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.setFormat(calSet, 'dd/MMM/yyyy HH:mm')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.day(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.month(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.monthName(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.monthNameShort(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.year(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.dayOfWeek(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.dayOfWeekName(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.dayOfWeekNameShort(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.hour(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.minute(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.second(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.millisecond(date)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.create(year,month,day)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.create(year,month,day,hour,minute)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.create(year,month,day,hour,minute,second)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.create(year,month,day,hour,minute,second,millisecond)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.createNow()&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#calendars.createToday()&#125;</span><br></pre></td></tr></table></figure>
+
+<p>格式化数字对象</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">$&#123;#numbers.formatInteger(num,3)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#numbers.arrayFormatInteger(numArray,3)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#numbers.listFormatInteger(numList,3)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#numbers.setFormatInteger(numSet,3)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#numbers.formatInteger(num,3,'POINT')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#numbers.arrayFormatInteger(numArray,3,'POINT')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#numbers.listFormatInteger(numList,3,'POINT')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#numbers.setFormatInteger(numSet,3,'POINT')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#numbers.formatDecimal(num,3,2)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#numbers.arrayFormatDecimal(numArray,3,2)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#numbers.listFormatDecimal(numList,3,2)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#numbers.setFormatDecimal(numSet,3,2)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#numbers.formatDecimal(num,3,2,'COMMA')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#numbers.arrayFormatDecimal(numArray,3,2,'COMMA')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#numbers.listFormatDecimal(numList,3,2,'COMMA')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#numbers.setFormatDecimal(numSet,3,2,'COMMA’)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#numbers.formatDecimal(num,3,'POINT',2,'COMMA')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#numbers.arrayFormatDecimal(numArray,3,'POINT',2,'COMMA')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#numbers.listFormatDecimal(numList,3,'POINT',2,'COMMA')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#numbers.setFormatDecimal(numSet,3,'POINT',2,'COMMA')&#125;</span><br><span class="line"></span><br><span class="line">![&#123;#numbers.sequence(from,to)&#125;]&#123;#numbers.sequence(from,to,step)&#125;</span><br></pre></td></tr></table></figure>
+
+<p>字符串处理</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">$&#123;#strings.isEmpty(name)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.arrayIsEmpty(nameArr)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.listIsEmpty(nameList)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.setIsEmpty(nameSet)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.defaultString(text,default)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.arrayDefaultString(textArr,default)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.listDefaultString(textList,default)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.setDefaultString(textSet,default)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.contains(name,'ez')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.containsIgnoreCase(name,'ez')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.startsWith(name,'Don')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.endsWith(name,endingFragment)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.indexOf(name,frag)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.substring(name,3,5)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.substringAfter(name,prefix)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.substringBefore(name,suffix)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.replace(name,'las','ler')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.prepend(str,prefix)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.append(str,suffix)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.toUpperCase(name)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.toLowerCase(name)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.arrayJoin(namesArray,',')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.listJoin(namesList,',')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.setJoin(namesSet,',')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.arraySplit(namesStr,',')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.listSplit(namesStr,',')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.setSplit(namesStr,',')&#125;</span><br><span class="line"></span><br><span class="line">![&#123;#strings.trim(str)&#125;]&#123;#strings.length(str)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.abbreviate(str,10)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.capitalize(str)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.unCapitalize(str)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.capitalizeWords(str)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.capitalizeWords(str,delimiters)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.escapeXml(str)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.escapeJava(str)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.escapeJavaScript(str)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.unescapeJava(str)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.unescapeJavaScript(str)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.equals(str)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.equalsIgnoreCase(str)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.concat(str)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#strings.concatReplaceNulls(str)&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对象处理</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$&#123;#objects.nullSafe(obj,default)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#objects.arrayNullSafe(objArray,default)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#objects.listNullSafe(objList,default)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#objects.setNullSafe(objSet,default)&#125;</span><br></pre></td></tr></table></figure>
+
+<p>布尔值相关</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$&#123;#bools.isTrue(obj)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#bools.arrayIsTrue(objArray)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#bools.listIsTrue(objList)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#bools.setIsTrue(objSet)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#bools.isFalse(cond)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#bools.arrayIsFalse(condArray)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#bools.listIsFalse(condList)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#bools.setIsFalse(condSet)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#bools.arrayAnd(condArray)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#bools.listAnd(condList)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#bools.setAnd(condSet)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#bools.arrayOr(condArray)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#bools.listOr(condList)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#bools.setOr(condSet)&#125;</span><br></pre></td></tr></table></figure>
+
+<p>数组相关</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$&#123;#arrays.toArray(object)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#arrays.toStringArray(object)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#arrays.toIntegerArray(object)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#arrays.toLongArray(object)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#arrays.toDoubleArray(object)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#arrays.toFloatArray(object)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#arrays.toBooleanArray(object)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#arrays.length(array)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#arrays.isEmpty(array)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#arrays.contains(array, element)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#arrays.containsAll(array, elements)&#125;</span><br></pre></td></tr></table></figure>
+
+<p>list集合相关</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$&#123;#lists.toList(object)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#lists.size(list)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#lists.isEmpty(list)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#lists.contains(list, element)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#lists.containsAll(list, elements)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#lists.sort(list)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#lists.sort(list, comparator)&#125;</span><br></pre></td></tr></table></figure>
+
+<p>set集合相关</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$&#123;#sets.toSet(object)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#sets.size(set)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#sets.isEmpty(set)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#sets.contains(set, element)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#sets.containsAll(set, elements)&#125;</span><br></pre></td></tr></table></figure>
+
+<p>map集合相关</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$&#123;#maps.size(map)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#maps.isEmpty(map)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#maps.containsKey(map, key)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#maps.containsAllKeys(map, keys)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#maps.containsValue(map, value)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#maps.containsAllValues(map, value)&#125;</span><br></pre></td></tr></table></figure>
+
+<p>聚集，聚合</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$&#123;#aggregates.sum(array)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#aggregates.sum(collection)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#aggregates.avg(array)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#aggregates.avg(collection)&#125;</span><br></pre></td></tr></table></figure>
+
+<p>获取外部信息内部变量</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">$&#123;#messages.msg('msgKey')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#messages.msg('msgKey', param1)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#messages.msg('msgKey', param1, param2)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#messages.msg('msgKey', param1, param2, param3)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#messages.msgWithParams('msgKey', new Object[] &#123;param1, param2, param3, param4&#125;)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#messages.arrayMsg(messageKeyArray)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#messages.listMsg(messageKeyList)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#messages.setMsg(messageKeySet)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#messages.msgOrNull('msgKey')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#messages.msgOrNull('msgKey', param1)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#messages.msgOrNull('msgKey', param1, param2)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#messages.msgOrNull('msgKey', param1, param2, param3)&#125;</span><br><span class="line"></span><br><span class="line">![&#123;#messages.msgOrNullWithParams('msgKey', new Object[] &#123;param1, param2, param3, param4&#125;)&#125;]&#123;#messages.arrayMsgOrNull(messageKeyArray)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#messages.listMsgOrNull(messageKeyList)&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#messages.setMsgOrNull(messageKeySet)&#125;</span><br></pre></td></tr></table></figure>
+
+<p>处理可能重复的id属性</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$&#123;#ids.seq('someId')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#ids.next('someId')&#125;</span><br><span class="line"></span><br><span class="line">$&#123;#ids.prev('someId')&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/09/NettyStudy%E2%80%94%E2%80%94%E7%AE%80%E6%98%93%E8%81%8A%E5%A4%A9%E5%AE%A4/" class="archive-article-date">
-  	<time datetime="2019-11-09T15:49:35.225Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/09/NettyStudy%E2%80%94%E2%80%94%E7%AE%80%E6%98%93%E8%81%8A%E5%A4%A9%E5%AE%A4/">NettyStudy——简易聊天室</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/22/Thymeleaf%E5%AE%8C%E5%85%A8%E6%89%8B%E5%86%8C/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/08/%E5%9C%A8GitHub%E4%B8%8A%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%AD%A5%E9%AA%A4%EF%BC%88Mac%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2019-11-08T09:04:49.358Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/12/13/FastDFS%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">FastDFS搭建总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/08/%E5%9C%A8GitHub%E4%B8%8A%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%AD%A5%E9%AA%A4%EF%BC%88Mac%EF%BC%89/">在GitHub上搭建博客步骤（Mac）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#thymeleaf介绍"><span class="toc-number">1.</span> <span class="toc-text">thymeleaf介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标准表达式语法"><span class="toc-number">2.</span> <span class="toc-text">标准表达式语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#变量表达式"><span class="toc-number">2.1.</span> <span class="toc-text">变量表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择-星号-表达式"><span class="toc-number">2.2.</span> <span class="toc-text">选择(星号)表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文字国际化表达式"><span class="toc-number">2.3.</span> <span class="toc-text">文字国际化表达式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#main-title"><span class="toc-number"></span> <span class="toc-text">{main.title}</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#message-entrycreated-entryId"><span class="toc-number"></span> <span class="toc-text">{message.entrycreated(${entryId})}</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#URL表达式"><span class="toc-number">0.1.</span> <span class="toc-text">URL表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变量表达式和星号表达有什么区别吗？"><span class="toc-number">0.2.</span> <span class="toc-text">变量表达式和星号表达有什么区别吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表达式支持的语法"><span class="toc-number">0.3.</span> <span class="toc-text">表达式支持的语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#字面（Literals）"><span class="toc-number">0.3.1.</span> <span class="toc-text">字面（Literals）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文本操作（Text-operations）"><span class="toc-number">0.3.2.</span> <span class="toc-text">文本操作（Text operations）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#算术运算（Arithmetic-operations）"><span class="toc-number">0.3.3.</span> <span class="toc-text">算术运算（Arithmetic operations）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#布尔操作（Boolean-operations）"><span class="toc-number">0.3.4.</span> <span class="toc-text">布尔操作（Boolean operations）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#比较和等价-Comparisons-and-equality"><span class="toc-number">0.3.5.</span> <span class="toc-text">比较和等价(Comparisons and equality)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#条件运算符（Conditional-operators）"><span class="toc-number">0.3.6.</span> <span class="toc-text">条件运算符（Conditional operators）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用th标签都有那些？"><span class="toc-number">1.</span> <span class="toc-text">常用th标签都有那些？</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/08/hello-world/" class="archive-article-date">
-  	<time datetime="2019-11-08T05:22:54.525Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/08/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
   
 
 
@@ -257,8 +506,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

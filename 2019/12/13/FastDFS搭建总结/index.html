@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>FastDFS有感... | LogBack</title>
+  <title>FastDFS搭建总结 | LogBack</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="​        今天花了一整天的搭建fastDFS+Nginx的分布式文件系统，为聊天小程序图片的上传和下载做一个准备。这一天不断地穿梭在各个配置文件、日志中，本来想着说教程网上有一大堆就不做记录了，但实在是被各种看得见的、看不见的小问题折磨的，虽然所有的问题都可以通过网上搜索资料、查看日志报错信息和头脑风暴解决，并且最后输入网址出现自己上传的图片还颇有成就感（已经不知道在说什么了），总之还是有">
 <meta name="keywords" content="&quot;后端,Java,Spring全家桶,Redis,RocketMQ,Netty,Docker&quot;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="FastDFS有感...">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;13&#x2F;FastDFS%E6%9C%89%E6%84%9F...&#x2F;index.html">
+<meta property="og:title" content="FastDFS搭建总结">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;13&#x2F;FastDFS%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93&#x2F;index.html">
 <meta property="og:site_name" content="LogBack">
 <meta property="og:description" content="​        今天花了一整天的搭建fastDFS+Nginx的分布式文件系统，为聊天小程序图片的上传和下载做一个准备。这一天不断地穿梭在各个配置文件、日志中，本来想着说教程网上有一大堆就不做记录了，但实在是被各种看得见的、看不见的小问题折磨的，虽然所有的问题都可以通过网上搜索资料、查看日志报错信息和头脑风暴解决，并且最后输入网址出现自己上传的图片还颇有成就感（已经不知道在说什么了），总之还是有">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-12T16:54:11.396Z">
+<meta property="og:updated_time" content="2019-12-13T02:58:03.495Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="LogBack" type="application/atom+xml">
@@ -137,20 +137,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-FastDFS有感..." class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-FastDFS搭建总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      FastDFS有感...
+      FastDFS搭建总结
     </h1>
   
 
         
-        <a href="/2019/12/13/FastDFS%E6%9C%89%E6%84%9F.../" class="archive-article-date">
-  	<time datetime="2019-12-12T16:54:11.396Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-13</time>
+        <a href="/2019/12/13/FastDFS%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2019-12-13T02:58:03.495Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-13</time>
 </a>
         
       </header>
@@ -162,8 +162,10 @@
 <p><strong><em>阿里云与防火墙的不解之缘</em></strong></p>
 <p>​        由于用的是阿里云的服务器，所以当你用Nginx或者Tomcat监听某个端口的时候，千万不要忘记将这个端口号在安全组中进行配置，方便外网进行访问；</p>
 <p>​        如果进行了安全组配置，依然无法访问，则可能是由于内部的防火墙将端口号进行拦截（所以我把防火墙拆了）；</p>
-<p>​        如果还是不行，仔细地检查一遍配置文件，地址，端口号…</p>
+<p>​        如果还是不行，仔细地检查一遍配置文件，地址，端口号和启动日志报错；</p>
 <p>​        PS：今天真的被这三个东西像皮球一样从踢来踢去</p>
+<a id="more"></a>
+
 <h3 id="什么是FastDFS"><a href="#什么是FastDFS" class="headerlink" title="什么是FastDFS"></a>什么是FastDFS</h3><p>FastDFS 是用 c 语言编写的一款开源的分布式文件系统。FastDFS 为互联网量身定制， 充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用 FastDFS 很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务。</p>
 <p>FastDFS 架构包括 Tracker server 和 Storage server。客户端请求 Tracker server 进行文 件上传、下载，通过 Tracker server 调度最终由 Storage server 完成文件上传和下载。</p>
 <p>Tracker server 作用是负载均衡和调度，通过 Tracker server 在文件上传时可以根据一些 策略找到 Storage server 提供文件上传服务。可以将 tracker 称为追踪服务器或调度服务 器。</p>
@@ -349,7 +351,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/13/FastDFS%E6%9C%89%E6%84%9F.../" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/13/FastDFS%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -362,6 +364,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/12/22/Thymeleaf%E5%AE%8C%E5%85%A8%E6%89%8B%E5%86%8C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Thymeleaf完全手册
+        
+      </div>
+    </a>
   
   
     <a href="/2019/11/30/Java%E4%B8%AD%E7%9A%84%E7%BC%96%E8%A7%A3%E7%A0%81/" id="article-nav-older" class="article-nav-link-wrap">
