@@ -17,7 +17,7 @@
 <meta property="og:description" content="​        转载一篇Thymeleaf的操作指南，方便自己查缺补漏；原文链接地址：https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;76d3d4cb2520 thymeleaf介绍简单说， Thymeleaf 是一个跟 Velocity、FreeMarker 类似的模板引擎，它可以完全替代 JSP 。相较与其他的模板引擎，它有如下三个极吸引人的特点： 1.Thymeleaf 在有网络和无网">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;math.jianshu.com&#x2F;math?formula=%7Buser.isAdmin()%7D%20%3F%20">
-<meta property="og:updated_time" content="2019-12-23T03:16:43.057Z">
+<meta property="og:updated_time" content="2019-12-23T03:23:46.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;math.jianshu.com&#x2F;math?formula=%7Buser.isAdmin()%7D%20%3F%20">
   
@@ -152,7 +152,7 @@
 
         
         <a href="/2019/12/23/Thymeleaf%E5%AE%8C%E5%85%A8%E6%89%8B%E5%86%8C/" class="archive-article-date">
-  	<time datetime="2019-12-23T03:16:43.057Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-23</time>
+  	<time datetime="2019-12-23T03:23:46.948Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-23</time>
 </a>
         
       </header>
@@ -268,10 +268,7 @@
 
 <h2 id="使用thymeleaf布局"><a href="#使用thymeleaf布局" class="headerlink" title="使用thymeleaf布局"></a>使用thymeleaf布局</h2><p>使用thymeleaf布局非常的方便</p>
 <p>定义代码片段</p>
-<footer th:fragment="copy">
-
-<p>© 2016</p>
-</footer>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">footer</span> <span class="attr">th:fragment</span>=<span class="string">"copy"</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">© 2016</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>在页面任何地方引入：</p>
 <body>
@@ -282,32 +279,16 @@
 
 <p>th:include 和 th:replace区别，include只是加载，replace是替换</p>
 <p>返回的HTML如下：</p>
-<body>
-
-<div> © 2016 </div>
-
-<footer>© 2016 </footer>
-
-</body>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span> © 2016 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">footer</span>&gt;</span>© 2016 <span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>下面是一个常用的后台页面布局，将整个页面分为头部，尾部、菜单栏、隐藏栏，点击菜单只改变content区域的页面</p>
-<body class="layout-fixed">
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:fragment</span>=<span class="string">"navbar"</span>  <span class="attr">class</span>=<span class="string">"wrapper"</span>  <span class="attr">role</span>=<span class="string">"navigation"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:fragment</span>=<span class="string">"navbar"</span>  <span class="attr">class</span>=<span class="string">"wrapper"</span>  <span class="attr">role</span>=<span class="string">"navigation"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:replace</span>=<span class="string">"fragments/header :: header"</span>&gt;</span>Header<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:replace</span>=<span class="string">"fragments/left :: left"</span>&gt;</span>left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:replace</span>=<span class="string">"fragments/sidebar :: sidebar"</span>&gt;</span>sidebar<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">layout:fragment</span>=<span class="string">"content"</span> <span class="attr">id</span>=<span class="string">"content"</span> &gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:replace</span>=<span class="string">"fragments/footer :: footer"</span>&gt;</span>footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-</div>
-
-</body>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">"layout-fixed"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:fragment</span>=<span class="string">"navbar"</span>  <span class="attr">class</span>=<span class="string">"wrapper"</span>  <span class="attr">role</span>=<span class="string">"navigation"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:fragment</span>=<span class="string">"navbar"</span>  <span class="attr">class</span>=<span class="string">"wrapper"</span>  <span class="attr">role</span>=<span class="string">"navigation"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:replace</span>=<span class="string">"fragments/header :: header"</span>&gt;</span>Header<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:replace</span>=<span class="string">"fragments/left :: left"</span>&gt;</span>left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:replace</span>=<span class="string">"fragments/sidebar :: sidebar"</span>&gt;</span>sidebar<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">layout:fragment</span>=<span class="string">"content"</span> <span class="attr">id</span>=<span class="string">"content"</span> &gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">th:replace</span>=<span class="string">"fragments/footer :: footer"</span>&gt;</span>footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>任何页面想使用这样的布局值只需要替换中见的 content模块即可</p>
-<html xmlns:th="http://www.thymeleaf.org" layout:decorator="layout">
-
-<body>
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">section</span> <span class="attr">layout:fragment</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span> <span class="attr">layout:decorator</span>=<span class="string">"layout"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">layout:fragment</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
 <p>也可以在引用模版的时候传参</p>
-<head th:include="layout :: htmlhead" th:with="title='Hello'"></head>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span> <span class="attr">th:include</span>=<span class="string">"layout :: htmlhead"</span> <span class="attr">th:with</span>=<span class="string">"title='Hello'"</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>layout 是文件地址，如果有文件夹可以这样写 fileName/layout:htmlhead</p>
 <p>htmlhead 是指定义的代码片段 如 th:fragment=“copy”</p>
