@@ -136,6 +136,69 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-多线程 DAY1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/29/%E5%A4%9A%E7%BA%BF%E7%A8%8B%20DAY1/">多线程 DAY1</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/29/%E5%A4%9A%E7%BA%BF%E7%A8%8B%20DAY1/" class="archive-article-date">
+  	<time datetime="2020-01-28T16:31:21.889Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>大年初四，这个被肺炎疫情笼罩着的春节让新年的氛围变得复杂。在家闲来无事，将之前对于多线程知识结构的学习进行了一次review。多线程在实际中的应用与JVM运行以及操作系统本身的有着密不可分的关系，通过这次梳理，加深一下印象。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/29/%E5%A4%9A%E7%BA%BF%E7%A8%8B%20DAY1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JVM DAY2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -701,83 +764,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/11/17/Netty%E4%B9%8BApache%20Thrift%E5%88%9D%E4%BD%93%E9%AA%8C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Netty上应用protobuf" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/14/Netty%E4%B8%8A%E5%BA%94%E7%94%A8protobuf/">Netty上应用protobuf</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/14/Netty%E4%B8%8A%E5%BA%94%E7%94%A8protobuf/" class="archive-article-date">
-  	<time datetime="2019-11-14T11:01:53.378Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这几天学习了protobuf，废话不多直接上笔记</p>
-<h4 id="什么是protobuf"><a href="#什么是protobuf" class="headerlink" title="什么是protobuf"></a>什么是protobuf</h4><p>​        网络通信和通用数据交换等应用场景中经常使用的技术是 JSON 或 XML，与这两种技术相类似，Google开发的Protobuf是一种更具效率和兼容性的传输载体。</p>
-<p>​        <strong>官方给出的定义：</strong></p>
-<ul>
-<li><p>protocol buffers 是一种语言无关、平台无关、可扩展的序列化结构数据的方法，它可用于（数据）通信协议、数据存储等。</p>
-</li>
-<li><p>Protocol Buffers 是一种灵活，高效，自动化机制的结构数据序列化方法－可类比 XML，但是比 XML 更小（3 ~ 10倍）、更快（20 ~ 100倍）、更为简单。</p>
-</li>
-<li><p>你可以定义数据的结构，然后使用特殊生成的源代码轻松的在各种数据流中使用各种语言进行编写和读取结构数据。你甚至可以更新数据结构，而不破坏由旧数据结构编译的已部署程序。</p>
-</li>
-<li><p>序列化：将结构数据或对象转换成能够被存储和传输（例如网络传输）的格式，同时应当要保证这个序列化结果在之后（可能在另一个计算环境中）能够被重建回原来的结构数据或对象。</p>
-</li>
-<li><p>类比于 XML：这里主要指在数据通信和数据存储应用场景中序列化方面的类比，但个人认为 XML 作为一种扩展标记语言和 ProtoBuf 还是有着本质区别的。</p>
-</li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/14/Netty%E4%B8%8A%E5%BA%94%E7%94%A8protobuf/">展开全文 >></a>
         </p>
       
 
