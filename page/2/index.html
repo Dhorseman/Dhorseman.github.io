@@ -136,6 +136,76 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-走进NIO之Buffer源码（上）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/23/%E8%B5%B0%E8%BF%9BNIO%E4%B9%8BBuffer%E6%BA%90%E7%A0%81%EF%BC%88%E4%B8%8A%EF%BC%89/">走进NIO之Buffer源码（上）</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/23/%E8%B5%B0%E8%BF%9BNIO%E4%B9%8BBuffer%E6%BA%90%E7%A0%81%EF%BC%88%E4%B8%8A%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2019-11-23T15:36:48.816Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="深入Buffer源码"><a href="#深入Buffer源码" class="headerlink" title="深入Buffer源码"></a>深入Buffer源码</h4><p>NIO中的7种Buffer类型（与Java8种基本类型相同，但没有Boolean型）皆继承了Buffer类，首先来看一下Buffer：</p>
+<p>关于NIO Buffer中的3个重要状态属性的含义：position，limit与capacity；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">A buffer is a linear, finite sequence of elements of a specific</span><br><span class="line">* primitive type.  Aside from its content, the essential properties of a</span><br><span class="line">* buffer are its capacity, limit, and position: </span><br><span class="line"> * 	 A buffer<span class="string">'s capacity is the number of elements it contains.  The</span></span><br><span class="line"><span class="string"> *   capacity of a buffer is never negative and never changes. </span></span><br><span class="line"><span class="string"> *</span></span><br><span class="line"><span class="string"> *   A buffer'</span>s limit is the index of the first element that should</span><br><span class="line"> *   not be read or written.  A buffer<span class="string">'s limit is never negative and is never</span></span><br><span class="line"><span class="string"> *   greater than its capacity. </span></span><br><span class="line"><span class="string"> *</span></span><br><span class="line"><span class="string"> *   A buffer'</span>s position is the index of the next element to be</span><br><span class="line"> *   read or written.  A buffer<span class="string">'s position is never negative and is never</span></span><br><span class="line"><span class="string"> *   greater than its limit.</span></span><br></pre></td></tr></table></figure>
+
+<p>position：下一个将要去读或者写的元素的索引，该索引不会超过limit的值</p>
+<p>limit：不能被读写的第一个元素的索引，该索引不可能为负数且不会超过capacity的值</p>
+<p>capacity：Buffer所包含的元素的个数，不可能为负数且设置后不会发生变化</p>
+<p>每写入一个元素，position的位置便会往后移一位，limit为可写入的最大的索引位置，capacity值不变；</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/23/%E8%B5%B0%E8%BF%9BNIO%E4%B9%8BBuffer%E6%BA%90%E7%A0%81%EF%BC%88%E4%B8%8A%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Netty之Apache Thrift初体验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

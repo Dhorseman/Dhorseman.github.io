@@ -6,14 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>LogBack</title>
+  <title>多线程DAY2 | LogBack</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="&quot;后端,Java,Spring全家桶,Redis,RocketMQ,Netty,Docker&quot;">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LogBack">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+  <meta name="description" content="​        这段时间学习了很多的多线程设计模式，多线程设计模式顾名思义就是为了解决在并发情况下可能出现的一些问题；作为多线程第二阶段的重点，第一阶段所掌握的多线程基础知识在此加以应用和强化，不同的设计模式应对不同的场景。这些多线程的设计模式并在实际应用中往往需要相互组合才能解决某些实际问题。 ###单例设计模式 ​        单例模式，是一种常用的软件设计模式。在它的核心结构中只包含一个">
+<meta name="keywords" content="&quot;后端,Java,Spring全家桶,Redis,RocketMQ,Netty,Docker&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多线程DAY2">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;01&#x2F;%E5%A4%9A%E7%BA%BF%E7%A8%8BDAY2&#x2F;index.html">
 <meta property="og:site_name" content="LogBack">
+<meta property="og:description" content="​        这段时间学习了很多的多线程设计模式，多线程设计模式顾名思义就是为了解决在并发情况下可能出现的一些问题；作为多线程第二阶段的重点，第一阶段所掌握的多线程基础知识在此加以应用和强化，不同的设计模式应对不同的场景。这些多线程的设计模式并在实际应用中往往需要相互组合才能解决某些实际问题。 ###单例设计模式 ​        单例模式，是一种常用的软件设计模式。在它的核心结构中只包含一个">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-02-29T16:02:11.087Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="LogBack" type="application/atom+xml">
@@ -134,16 +137,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-多线程DAY2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-多线程DAY2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/01/%E5%A4%9A%E7%BA%BF%E7%A8%8BDAY2/">多线程DAY2</a>
+    <h1 class="article-title" itemprop="name">
+      多线程DAY2
     </h1>
   
 
@@ -426,16 +427,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/01/%E5%A4%9A%E7%BA%BF%E7%A8%8BDAY2/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/01/%E5%A4%9A%E7%BA%BF%E7%A8%8BDAY2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/07/JVM%20DAY3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JVM DAY3</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -450,607 +510,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JVM DAY3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/07/JVM%20DAY3/">JVM DAY3</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/07/JVM%20DAY3/" class="archive-article-date">
-  	<time datetime="2020-02-07T14:44:37.634Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="类加载器（二）"><a href="#类加载器（二）" class="headerlink" title="类加载器（二）"></a>类加载器（二）</h3><p>​        春节就快结束了，关于类加载器的学习总结也快结束了。之前介绍了类加载器的结构，如何自定义一个类加载器，如何让自己的类加载器工作…现在来挖掘一些关于类加载器更深层的东西。</p>
-<p><strong>类加载器双亲委托模型的好处：</strong></p>
-<p>1、可以确保Java核心库的类型安全，比如：rt.jar中的java.lang.Object,java.lang.String，所有的Java应用都至少会引用java.lang.Object类，也就是说在运行期java.lang.Object会被加载到Java虚拟机中，如果这个加载过程是由Java应用自己的类加载器所完成的，那么很可能就会在JVM中存在多个版本的java.lang.Object，而且这些类之间是不兼容，相互不可见的（命名空间不同导致）；借助于双亲委托机制，Java核心类库中的类的加载工作都是由启动类加载器来统一完成加载工作，确保了Java应用所使用的都是同一个版本的Java核心类库，他们之间是相互兼容的；</p>
-<p>2、可以确保Java核心类库所提供的类不会被自定义的类所替代；</p>
-<p>3、不同的类加载器可以为相同名称（binary name）的类创建额外的命名空间，相同名称的类可以并存在Java虚拟机中，只需要用不同的类加载器来加载它们即可。不同类加载器所加载的类时不兼容的，这就相当于在JVM内部创建了一个又一个相互隔离的Java类空间，这类技术在很多框架中都得到了实际应用；</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/07/JVM%20DAY3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-多线程 DAY1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/29/%E5%A4%9A%E7%BA%BF%E7%A8%8B%20DAY1/">多线程 DAY1</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/29/%E5%A4%9A%E7%BA%BF%E7%A8%8B%20DAY1/" class="archive-article-date">
-  	<time datetime="2020-01-28T16:31:21.889Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>大年初四，这个被肺炎疫情笼罩着的春节让新年的氛围变得复杂。在家闲来无事，将之前对于多线程知识结构的学习进行了一次review。多线程在实际中的应用与JVM运行以及操作系统本身的有着密不可分的关系，通过这次梳理，加深一下印象。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/29/%E5%A4%9A%E7%BA%BF%E7%A8%8B%20DAY1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JVM DAY2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/14/JVM%20DAY2/">JVM DAY2</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/14/JVM%20DAY2/" class="archive-article-date">
-  	<time datetime="2020-01-14T12:42:58.020Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="类加载器-一"><a href="#类加载器-一" class="headerlink" title="类加载器(一)"></a>类加载器(一)</h3><p>​        虚拟机设计团队把类加载阶段中的“通过一个类的全限定名来获取描述此类的二进制字节流”这个动作放到Java虚拟机外部去实现，以便让应用程序自己决定如何去获取所需要的类。实现这个动作的代码模块称为“类加载器”。</p>
-<p><strong>类加载器：</strong></p>
-<p>​        从虚拟机的角度来说，只存在两种不同的类加载器：一种是启动类加载器（Bootstrap ClassLoader），该类加载器使用C++语言实现，属于虚拟机自身的一部分。另外一种就是所有其它的类加载器，这些类加载器是由Java语言实现，独立于JVM外部，并且全部继承自抽象类java.lang.ClassLoader。</p>
-<p>​        对于任何一个类，都需要由加载它的类加载器和这个类来确立其在JVM中的唯一性。也就是说，两个类来源于同一个Class文件，并且被同一个类加载器加载，这两个类才相等。</p>
-<p>​        类加载器用来把类加载到Java虚拟机中。从JDK1.2开始，类的加载过程采用父亲委托机制，这种机制能更好地保证Java平台的安全。在此委托机制中，除了Java虚拟机自带的根类加载器以外，其余的类加载器都会有且只有一个父加载器。当Java程序请求加载器loader1加载Sample类时，loader1首先委托自己的父加载器去加载Sample类，若父加载器能加载，则由父加载器完成加载任务，否则才由加载器loader1本身加载Sample类。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/14/JVM%20DAY2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JVM DAY1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/05/JVM%20DAY1/">JVM DAY1</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/05/JVM%20DAY1/" class="archive-article-date">
-  	<time datetime="2020-01-05T13:21:37.825Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="类的加载机制"><a href="#类的加载机制" class="headerlink" title="类的加载机制"></a>类的加载机制</h3><p>虚拟机把描述类的数据从Class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这就是虚拟机的类加载机制。</p>
-<p><strong>类加载</strong></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/05/JVM%20DAY1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Thymeleaf完全手册" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/23/Thymeleaf%E5%AE%8C%E5%85%A8%E6%89%8B%E5%86%8C/">Thymeleaf完全手册</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/23/Thymeleaf%E5%AE%8C%E5%85%A8%E6%89%8B%E5%86%8C/" class="archive-article-date">
-  	<time datetime="2019-12-23T03:23:46.948Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​        转载一篇Thymeleaf的操作指南，方便自己查缺补漏；原文链接地址：<a href="https://www.jianshu.com/p/76d3d4cb2520" target="_blank" rel="noopener">https://www.jianshu.com/p/76d3d4cb2520</a></p>
-<h2 id="thymeleaf介绍"><a href="#thymeleaf介绍" class="headerlink" title="thymeleaf介绍"></a>thymeleaf介绍</h2><p>简单说， Thymeleaf 是一个跟 Velocity、FreeMarker 类似的模板引擎，它可以完全替代 JSP 。相较与其他的模板引擎，它有如下三个极吸引人的特点：</p>
-<p>1.Thymeleaf 在有网络和无网络的环境下皆可运行，即它可以让美工在浏览器查看页面的静态效果，也可以让程序员在服务器查看带数据的动态页面效果。这是由于它支持 html 原型，然后在 html 标签里增加额外的属性来达到模板+数据的展示方式。浏览器解释 html 时会忽略未定义的标签属性，所以 thymeleaf 的模板可以静态地运行；当有数据返回到页面时，Thymeleaf 标签会动态地替换掉静态内容，使页面动态显示。</p>
-<p>2.Thymeleaf 开箱即用的特性。它提供标准和spring标准两种方言，可以直接套用模板实现JSTL、 OGNL表达式效果，避免每天套模板、该jstl、改标签的困扰。同时开发人员也可以扩展和创建自定义的方言。</p>
-<p>3.Thymeleaf 提供spring标准方言和一个与 SpringMVC 完美集成的可选模块，可以快速的实现表单绑定、属性编辑器、国际化等功能。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/23/Thymeleaf%E5%AE%8C%E5%85%A8%E6%89%8B%E5%86%8C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-FastDFS搭建总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/13/FastDFS%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/">FastDFS搭建总结</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/13/FastDFS%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2019-12-13T02:58:03.495Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​        今天花了一整天的搭建fastDFS+Nginx的分布式文件系统，为聊天小程序图片的上传和下载做一个准备。这一天不断地穿梭在各个配置文件、日志中，本来想着说教程网上有一大堆就不做记录了，但实在是被各种看得见的、看不见的小问题折磨的，虽然所有的问题都可以通过网上搜索资料、查看日志报错信息和头脑风暴解决，并且最后输入网址出现自己上传的图片还颇有成就感（已经不知道在说什么了），总之还是有必要记录一下踩过的坑。</p>
-<h3 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h3><p>没错，开门见山直抒胸臆，教程什么的往后稍稍，以后有错先看看这些前车之鉴。</p>
-<p><strong><em>阿里云与防火墙的不解之缘</em></strong></p>
-<p>​        由于用的是阿里云的服务器，所以当你用Nginx或者Tomcat监听某个端口的时候，千万不要忘记将这个端口号在安全组中进行配置，方便外网进行访问；</p>
-<p>​        如果进行了安全组配置，依然无法访问，则可能是由于内部的防火墙将端口号进行拦截（所以我把防火墙拆了）；</p>
-<p>​        如果还是不行，仔细地检查一遍配置文件，地址，端口号和启动日志报错；</p>
-<p>​        PS：今天真的被这三个东西像皮球一样从踢来踢去</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/13/FastDFS%E6%90%AD%E5%BB%BA%E6%80%BB%E7%BB%93/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java中的编解码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/30/Java%E4%B8%AD%E7%9A%84%E7%BC%96%E8%A7%A3%E7%A0%81/">Java中的编解码</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/30/Java%E4%B8%AD%E7%9A%84%E7%BC%96%E8%A7%A3%E7%A0%81/" class="archive-article-date">
-  	<time datetime="2019-11-30T12:56:33.802Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​        在进行文件存储、读取、传输的过程中，以及进行web开发时前后端的信息传递，编解码一直是一个看似不起眼但实际上不能忽视的问题。今天做了一些简单的学习，在此记录一下，希望之后再遇到相关问题时能够有较好的解决思路。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/30/Java%E4%B8%AD%E7%9A%84%E7%BC%96%E8%A7%A3%E7%A0%81/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-走进NIO之Selector" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/27/%E8%B5%B0%E8%BF%9BNIO%E4%B9%8BSelector/">走进NIO之Selector</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/27/%E8%B5%B0%E8%BF%9BNIO%E4%B9%8BSelector/" class="archive-article-date">
-  	<time datetime="2019-11-27T06:06:52.629Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="深入selector源码"><a href="#深入selector源码" class="headerlink" title="深入selector源码"></a>深入selector源码</h3><p>NIO的三大组件：Buffer，Channel，Selector；前面完成了Buffer相关知识的学习，现在来看Selector——选择器，用于检查一个或多个NIO Channel（通道）的状态是否处于可读、可写。如此可以实现单线程管理多个channels,也就是可以管理多个网络链接。</p>
-<p>说实话这源码读的我云里雾里的，结合其他的博客捋了捋才清楚一些…但是通过底层源码的阅读能够更直接的去了解设计者的原意，在此还是记录下来，作为以后rollback的根据。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/27/%E8%B5%B0%E8%BF%9BNIO%E4%B9%8BSelector/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-走进NIO之Buffer源码（下）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/25/%E8%B5%B0%E8%BF%9BNIO%E4%B9%8BBuffer%E6%BA%90%E7%A0%81%EF%BC%88%E4%B8%8B%EF%BC%89/">走进NIO之Buffer源码（下）</a>
-    </h1>
-  
-
-        
-        <a href="/2019/11/25/%E8%B5%B0%E8%BF%9BNIO%E4%B9%8BBuffer%E6%BA%90%E7%A0%81%EF%BC%88%E4%B8%8B%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2019-11-25T07:00:28.078Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="探索底层"><a href="#探索底层" class="headerlink" title="探索底层"></a>探索底层</h4><p>allocate()：返回一个HeapByteBuffer对象（存储在堆中的缓冲区，由JVM操作） ；假设在JVM的内存中有一个HeapByteBuffer类型的数据（字节数组），如果操作系统想要处理这样的一个数据，其需要在JVM内存之外开辟一块新的内存区域，将JVM内存中关于HeapByteBuffer的数据拷贝到新开辟的内存区域中进行IO操作（数据的读取或写入）。</p>
-<p>allocateDirect()：返回一个DirectByteBuffer对象（存储在直接缓冲区，由JVM操作），其中用到了很多以sun开头的jar包，包含很多的native方法；与allocate()方法不同，通过allocate()生成的数据会生成在JVM的堆内；而allocateDirect()生成的数据会存在堆外内存里，操作系统无需再进行拷贝数据（实现零拷贝）；</p>
-<p>最终生成的数据会存储在堆外内存(native,本地内存，由操作系统控制)中，底层通过malloc方法对数据进行操作；这样DirectByteBuffer与最终生成的数据之间必然通过某种引用的方式进行连接，在DirectByteBuffer的超级父类Buffer中有一个address(long型)属性，其表示堆外内存中真正分配的数据的地址</p>
-<p>总结：HeapByteBuffer所有内存的分配在堆上进行，在JVM内存模型中可以访问到；DirectByteBuffer的内存分配同样是在堆上进行，但其中会有一个address(long型)的成员变量，该成员变量表示在堆外内存中的一个地址，通过该地址可以找到堆外内存生成的数据；这样效率上就会有一个区别，操作系统在进行IO操作时如果数据在直接缓冲区中，则会减少一次拷贝数据的流程；</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/25/%E8%B5%B0%E8%BF%9BNIO%E4%B9%8BBuffer%E6%BA%90%E7%A0%81%EF%BC%88%E4%B8%8B%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1073,8 +558,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
